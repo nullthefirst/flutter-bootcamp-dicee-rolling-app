@@ -25,6 +25,16 @@ class _DicePageState extends State<DicePage> {
   int leftDiceNumber = 1;
   int rightDiceNumber = 1;
 
+  Map<String, int> diceRoll() {
+    int left = Random().nextInt(6) + 1;
+    int right = Random().nextInt(6) + 1;
+
+    return {
+      'left': left,
+      'right': right,
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -34,8 +44,8 @@ class _DicePageState extends State<DicePage> {
             child: FlatButton(
               onPressed: () {
                 setState(() {
-                  leftDiceNumber = Random().nextInt(6) + 1;
-                  rightDiceNumber = Random().nextInt(6) + 1;
+                  leftDiceNumber = diceRoll()['left'];
+                  rightDiceNumber = diceRoll()['right'];
                   print('Left: $leftDiceNumber | Right: $rightDiceNumber');
                 });
               },
@@ -46,8 +56,8 @@ class _DicePageState extends State<DicePage> {
             child: FlatButton(
               onPressed: () {
                 setState(() {
-                  leftDiceNumber = Random().nextInt(6) + 1;
-                  rightDiceNumber = Random().nextInt(6) + 1;
+                  leftDiceNumber = diceRoll()['left'];
+                  rightDiceNumber = diceRoll()['right'];
                   print('Left: $leftDiceNumber | Right: $rightDiceNumber');
                 });
               },
